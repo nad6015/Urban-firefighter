@@ -1,0 +1,207 @@
+{
+    "name": "RhythmBreakerActions",
+    "maps": [
+        {
+            "name": "Default",
+            "id": "fd859ad9-48e2-45b6-a76a-f8076a8626d9",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "6393b9e7-961a-4a49-a0ba-70dde22be718",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "86244984-d7b3-4782-b84e-1e71393aeff2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "cbf5f7ad-0e32-4fd7-b038-0fe261deeeaa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "8fea6f01-57bf-43a0-898f-563ad98b0215",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "aceadb3f-2baf-4c6d-b405-13bc7f0935e2",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GameDefault",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "9c1486e5-c61c-447d-a3eb-9b1c21bcda35",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GameDefault",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "65098c93-6ae4-4699-b70e-8e84e3c1770e",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GameDefault",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "fbdbd1a6-35c7-4709-ab36-2704bbc18268",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GameDefault",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "06114852-f6e8-4fe9-ac9f-39c727254b7c",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GameDefault",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "cf126ecb-08a6-42c8-9fe4-4033b3211cb1",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GameDefault",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "2c246328-a0b2-4b64-9efb-0a74a766fce1",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GameDefault",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "a2bbb07d-9c3a-43b4-9b26-324f33bc7d43",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GameDefault",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "88127b31-44a3-4b86-83f3-4ec3479d26f5",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GameDefault",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "6edd3cf4-46d3-4432-9bcc-80e8e4337192",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GameDefault",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0aeabd14-cfe7-489b-8fce-6e56f1fb4676",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "New action map",
+            "id": "5dec4c41-fa4a-4566-b20b-c646389a2fc9",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "5fae8dd9-5492-4444-aea1-294d80e7a634",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "82ac5cf6-2bb2-426f-9b4c-0b8e1a67c299",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "GameDefault",
+            "bindingGroup": "GameDefault",
+            "devices": []
+        }
+    ]
+}
