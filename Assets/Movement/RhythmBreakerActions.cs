@@ -53,6 +53,15 @@ public partial class @RhythmBreakerActions : IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Spray"",
+                    ""type"": ""Button"",
+                    ""id"": ""e67857cf-c9e0-402f-9b8f-4c514b889d74"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,9 +77,9 @@ public partial class @RhythmBreakerActions : IInputActionCollection2, IDisposabl
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
+                    ""name"": ""Up"",
                     ""id"": ""aceadb3f-2baf-4c6d-b405-13bc7f0935e2"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GameDefault"",
@@ -79,9 +88,9 @@ public partial class @RhythmBreakerActions : IInputActionCollection2, IDisposabl
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
+                    ""name"": ""Down"",
                     ""id"": ""9c1486e5-c61c-447d-a3eb-9b1c21bcda35"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GameDefault"",
@@ -90,78 +99,23 @@ public partial class @RhythmBreakerActions : IInputActionCollection2, IDisposabl
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""65098c93-6ae4-4699-b70e-8e84e3c1770e"",
+                    ""name"": ""Left"",
+                    ""id"": ""17c28798-bfd4-429a-91e4-bc6c6cfd59f9"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GameDefault"",
+                    ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""fbdbd1a6-35c7-4709-ab36-2704bbc18268"",
+                    ""name"": ""Right"",
+                    ""id"": ""11b54a4f-e387-46c9-84ec-284036be429a"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GameDefault"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""06114852-f6e8-4fe9-ac9f-39c727254b7c"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GameDefault"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""cf126ecb-08a6-42c8-9fe4-4033b3211cb1"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GameDefault"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""2c246328-a0b2-4b64-9efb-0a74a766fce1"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GameDefault"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""a2bbb07d-9c3a-43b4-9b26-324f33bc7d43"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GameDefault"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""88127b31-44a3-4b86-83f3-4ec3479d26f5"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GameDefault"",
+                    ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -183,36 +137,19 @@ public partial class @RhythmBreakerActions : IInputActionCollection2, IDisposabl
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""GameDefault"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""New action map"",
-            ""id"": ""5dec4c41-fa4a-4566-b20b-c646389a2fc9"",
-            ""actions"": [
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""5fae8dd9-5492-4444-aea1-294d80e7a634"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""82ac5cf6-2bb2-426f-9b4c-0b8e1a67c299"",
-                    ""path"": """",
-                    ""interactions"": """",
+                    ""id"": ""0bca032b-d4d0-448e-bf31-c3fbe6468d58"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Hold(duration=0.2,pressPoint=0.5)"",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
+                    ""groups"": ""GameDefault"",
+                    ""action"": ""Spray"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -223,7 +160,18 @@ public partial class @RhythmBreakerActions : IInputActionCollection2, IDisposabl
         {
             ""name"": ""GameDefault"",
             ""bindingGroup"": ""GameDefault"",
-            ""devices"": []
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -232,9 +180,7 @@ public partial class @RhythmBreakerActions : IInputActionCollection2, IDisposabl
         m_Default_Movement = m_Default.FindAction("Movement", throwIfNotFound: true);
         m_Default_Interact = m_Default.FindAction("Interact", throwIfNotFound: true);
         m_Default_Jump = m_Default.FindAction("Jump", throwIfNotFound: true);
-        // New action map
-        m_Newactionmap = asset.FindActionMap("New action map", throwIfNotFound: true);
-        m_Newactionmap_Newaction = m_Newactionmap.FindAction("New action", throwIfNotFound: true);
+        m_Default_Spray = m_Default.FindAction("Spray", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -297,6 +243,7 @@ public partial class @RhythmBreakerActions : IInputActionCollection2, IDisposabl
     private readonly InputAction m_Default_Movement;
     private readonly InputAction m_Default_Interact;
     private readonly InputAction m_Default_Jump;
+    private readonly InputAction m_Default_Spray;
     public struct DefaultActions
     {
         private @RhythmBreakerActions m_Wrapper;
@@ -304,6 +251,7 @@ public partial class @RhythmBreakerActions : IInputActionCollection2, IDisposabl
         public InputAction @Movement => m_Wrapper.m_Default_Movement;
         public InputAction @Interact => m_Wrapper.m_Default_Interact;
         public InputAction @Jump => m_Wrapper.m_Default_Jump;
+        public InputAction @Spray => m_Wrapper.m_Default_Spray;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -322,6 +270,9 @@ public partial class @RhythmBreakerActions : IInputActionCollection2, IDisposabl
                 @Jump.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
+                @Spray.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSpray;
+                @Spray.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSpray;
+                @Spray.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSpray;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -335,43 +286,13 @@ public partial class @RhythmBreakerActions : IInputActionCollection2, IDisposabl
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Spray.started += instance.OnSpray;
+                @Spray.performed += instance.OnSpray;
+                @Spray.canceled += instance.OnSpray;
             }
         }
     }
     public DefaultActions @Default => new DefaultActions(this);
-
-    // New action map
-    private readonly InputActionMap m_Newactionmap;
-    private INewactionmapActions m_NewactionmapActionsCallbackInterface;
-    private readonly InputAction m_Newactionmap_Newaction;
-    public struct NewactionmapActions
-    {
-        private @RhythmBreakerActions m_Wrapper;
-        public NewactionmapActions(@RhythmBreakerActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Newactionmap_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(NewactionmapActions set) { return set.Get(); }
-        public void SetCallbacks(INewactionmapActions instance)
-        {
-            if (m_Wrapper.m_NewactionmapActionsCallbackInterface != null)
-            {
-                @Newaction.started -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnNewaction;
-            }
-            m_Wrapper.m_NewactionmapActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
-            }
-        }
-    }
-    public NewactionmapActions @Newactionmap => new NewactionmapActions(this);
     private int m_GameDefaultSchemeIndex = -1;
     public InputControlScheme GameDefaultScheme
     {
@@ -386,9 +307,6 @@ public partial class @RhythmBreakerActions : IInputActionCollection2, IDisposabl
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-    }
-    public interface INewactionmapActions
-    {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnSpray(InputAction.CallbackContext context);
     }
 }
