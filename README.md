@@ -8,9 +8,9 @@ Buildings catching fire, a lot of people, animals and property in danger but onl
 ## Unique Selling Points (USPs)
 In this action platformer the player will interact, act and respond with the following game mechanics;
 
-Unlike most survivor games, this one focuses on interacting with the scenario and levels to solve puzzles and save NPCs.  
-The player will take turns with the game mechanics to continue advancing through the game and manage its limited resources (i.e water to extinguish the fire) to finish each level.  
-The player will use some elements of the environment to extinguish the flames, save people or advance to the next level. 
+- Unlike most survivor games, this one focuses on interacting with the scenario and levels to solve puzzles and save NPCs.  
+- The player will take turns with the game mechanics to continue advancing through the game and manage its limited resources (i.e water to extinguish the fire) to finish each level.  
+- The player will use some elements of the environment to extinguish the flames, save people or advance to the next level. 
 
 ## The Team
 * Alify Pires - Game Designer, Programmer
