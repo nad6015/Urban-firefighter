@@ -7,6 +7,7 @@ public class PlayerCharacter : MonoBehaviour
     public int HP = 30;
     public int maxHP = 30;
 
+    // TODO: Move this code to be on fire gameobjects
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 9)
