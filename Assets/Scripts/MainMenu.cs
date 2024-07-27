@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -27,15 +28,19 @@ public class MainMenu : MonoBehaviour
     }
 
     public void StartGame() {
-        Debug.Log("Start Game");
+        SceneManager.LoadScene("Level_1");
     }
 
     public void LoadCredits() {
-        Debug.Log("Load Credits");
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void LoadMainMenu() {
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void LoadOptions() {
-        Debug.Log("Load Options");
+        SceneManager.LoadScene("Options");
     }
 
     public void ExitGame() {
