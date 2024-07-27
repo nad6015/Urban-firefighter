@@ -18,7 +18,7 @@ public class AudioSettings : MonoBehaviour
 
     void Start()
     {
-        if(PlayerPrefs.HasKey("GameVolume") && PlayerPrefs.HasKey("SoundEffectVolume")) {
+        if(PlayerPrefs.HasKey("GameVolume") || PlayerPrefs.HasKey("SoundEffectVolume")) {
             LoadVolumePreferences();
             SetMusicVolume();
         } else {
