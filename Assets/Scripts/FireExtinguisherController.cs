@@ -59,17 +59,16 @@ public class FireExtinguisherController : MonoBehaviour
     // // test: with the press of the letter "U" the extinguisher level will drop and with "R" letter increase
     // // to test uncomment the Update() method below
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            UseExtinguisher(10);
-        }
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.U))
+    //     {
+    //         UseExtinguisher(10);
+    //     }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RefillExtinguisher(10);
-        }
-    }
-
+    //     if (Input.GetKeyDown(KeyCode.R))
+    //     {
+    //         RefillExtinguisher(10);
+    //     }
+    // }
 }
