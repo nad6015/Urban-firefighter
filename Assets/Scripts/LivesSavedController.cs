@@ -25,12 +25,12 @@ public class LivesSavedController : MonoBehaviour
     // // test: with the press of the letter "S", the number of lives saved is increased by 1
     // // to test uncomment the Update() method below
 
-    // void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.S))
-    //     {
-    //         SaveLife();
-    //     }
-    // }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SaveLife();
+        }
+    }
 
 }
