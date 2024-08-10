@@ -11,8 +11,13 @@ public class FireExtinguisher : MonoBehaviour
 
     public int WaterSupply { get => waterSupply; }
 
-    internal void decreaseWaterSupply()
+    internal void DecreaseWaterSupply()
     {
         waterSupply -= waterStr;
+    }
+
+    public bool HasWater()
+    {
+        return waterSupply > 0;
     }
 }

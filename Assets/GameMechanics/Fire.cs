@@ -24,6 +24,7 @@ public class Fire : MonoBehaviour
         {
             var hose = other.GetComponent<FireExtinguisher>();
             fireStr -= hose.waterStr;
+            hose.DecreaseWaterSupply();
             
             timeToApplyWater = 1f;
             transform.localScale = Vector3.one * Mathf.Max((fireStr / maxFireStr), 0.3f);
