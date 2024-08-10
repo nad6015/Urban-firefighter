@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private Transform _root;
     private Animator _animator;
 
+    private bool hasFireExtinguisher = false;
+
     private void Awake()
     {
         _actions = new UrbanFireFighterActions();
@@ -46,6 +48,33 @@ public class PlayerController : MonoBehaviour
         DisableMovement();
     }
 
+    private void OnSpray(InputAction.CallbackContext context)
+    {
+        if (hasFireExtinguisher)
+        {
+            DischargeFireExtinguisher();
+        }
+    }
+
+    private void DischargeFireExtinguisher()
+    {
+        // Logic for discharging the fire extinguisher
+        Debug.Log("Discharging fire extinguisher!");
+
+        // Interaction with fire objects
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 10f))
+        {
+            Fire fire = hit.collider.GetComponent<Fire>();
+            if (fire != null)
+            {
+                // fire.Extinguish(10f); // Extinguish the fire method. But I can see there is some other intention in the Fire object, there is OnParticleCollision method
+                hasFireExtinguisher = false;
+            }
+        }
+    }
+
+
     private void EnableMovement()
     {
         _actions.Default.Movement.Enable();
@@ -57,6 +86,7 @@ public class PlayerController : MonoBehaviour
         _actions.Default.Movement.performed += OnMovement;
 
         _actions.Default.Interact.performed += OnInteract;
+        _actions.Default.Spray.performed += OnSpray;
 
         _actions.Default.Jump.performed += OnJumpCanceled;
         _actions.Default.Jump.performed += OnJump;
@@ -127,7 +157,16 @@ public class PlayerController : MonoBehaviour
     {
         if (_interactable != null)
         {
-            _interactable.Interact(gameObject);
+            if (_interactable.CompareTag("FireExtinguisher"))
+            {
+                hasFireExtinguisher = true;
+                Destroy(_interactable.gameObject); // Pick up and destroy the extinguisher in the scene
+                Debug.Log("Picked up fire extinguisher!");
+            }
+            else
+            {
+                _interactable.Interact(gameObject);
+            }
         }
     }
 
