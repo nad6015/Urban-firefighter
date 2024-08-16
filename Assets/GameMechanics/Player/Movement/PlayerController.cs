@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,10 +9,12 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 2.5f;
     public float lerpTime = 0.1f;
     public float gravityMultipler = 1.0f;
-    public bool isMoving = false;
+    private float pushbackMag = 10f;
 
-    private bool HasStopped { get; set; }
-    private Vector3 _motion;
+    private bool _hasStopped { get; set; }
+    private Vector3 _inputMotion;
+    private Vector3 _outsideForce;
+    private bool _ignoreInput;
     private Vector3 _dir;
     private Vector3 _motionZero = Vector3.zero;
 
@@ -21,8 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private Transform _root;
     private Animator _animator;
-
-    private bool hasFireExtinguisher = false;
+    internal Action<float> onDamage;
 
     private void Awake()
     {
@@ -48,33 +50,6 @@ public class PlayerController : MonoBehaviour
         DisableMovement();
     }
 
-    private void OnSpray(InputAction.CallbackContext context)
-    {
-        if (hasFireExtinguisher)
-        {
-            DischargeFireExtinguisher();
-        }
-    }
-
-    private void DischargeFireExtinguisher()
-    {
-        // Logic for discharging the fire extinguisher
-        Debug.Log("Discharging fire extinguisher!");
-
-        // Interaction with fire objects
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 10f))
-        {
-            Fire fire = hit.collider.GetComponent<Fire>();
-            if (fire != null)
-            {
-                // fire.Extinguish(10f); // Extinguish the fire method. But I can see there is some other intention in the Fire object, there is OnParticleCollision method
-                hasFireExtinguisher = false;
-            }
-        }
-    }
-
-
     private void EnableMovement()
     {
         _actions.Default.Movement.Enable();
@@ -86,9 +61,7 @@ public class PlayerController : MonoBehaviour
         _actions.Default.Movement.performed += OnMovement;
 
         _actions.Default.Interact.performed += OnInteract;
-        _actions.Default.Spray.performed += OnSpray;
 
-        _actions.Default.Jump.performed += OnJumpCanceled;
         _actions.Default.Jump.performed += OnJump;
     }
 
@@ -108,15 +81,21 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        CalculateCharacterY();
-
-        if (HasStopped)
+        Vector3 motion = Vector3.zero;
+        if (_ignoreInput)
         {
-            _motionZero.y = _motion.y;
-            _motion = Vector3.Slerp(_motion, _motionZero, lerpTime);
+            CalculateCharacterY(ref _outsideForce, 0f);
+            CalculateMotion(ref _outsideForce);
+            motion = _outsideForce;
+        }
+        else
+        {
+            CalculateCharacterY(ref _inputMotion, -1f);
+            CalculateMotion(ref _inputMotion);
+            motion = _inputMotion;
         }
 
-        _controller.Move(_motion * Time.deltaTime * speed);
+        _controller.Move(motion * Time.deltaTime * speed);
         if (_dir != Vector3.zero)
         {
             _root.transform.rotation = Quaternion.Slerp(_root.transform.rotation, Quaternion.LookRotation(_dir, Vector3.up), lerpTime);
@@ -124,11 +103,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void CalculateCharacterY()
+    private void CalculateCharacterY(ref Vector3 _motion, float gravityBoundary)
     {
         if (_controller.isGrounded)
         {
-            _motion.y = Mathf.Clamp(_motion.y, -1f, jumpHeight);
+            _motion.y = Mathf.Clamp(_motion.y, gravityBoundary, jumpHeight);
             _animator.SetBool("isJumping", false);
         }
         else
@@ -138,52 +117,53 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void CalculateMotion(ref Vector3 _motion)
+    {
+        // If there's no input from the player or an external force is acting on the player
+        if (_hasStopped || _ignoreInput)
+        {
+            _motionZero.y = _motion.y;
+            _motion = Vector3.Slerp(_motion, _motionZero, lerpTime);
+
+            // If the external force has been expended
+            if (_ignoreInput && Vector3.Distance(_motion, _motionZero) < 0.1f)
+            {
+                _ignoreInput = false;
+            }
+        }
+    }
+
     private void OnJump(InputAction.CallbackContext context)
     {
         if (_controller.isGrounded)
         {
-            _motion.y = jumpHeight;
+            _inputMotion.y = jumpHeight;
             _animator.SetBool("isJumping", true);
         }
-    }
-
-
-    private void OnJumpCanceled(InputAction.CallbackContext context)
-    {
-      
     }
 
     private void OnInteract(InputAction.CallbackContext context)
     {
         if (_interactable != null)
         {
-            if (_interactable.CompareTag("FireExtinguisher"))
-            {
-                hasFireExtinguisher = true;
-                Destroy(_interactable.gameObject); // Pick up and destroy the extinguisher in the scene
-                Debug.Log("Picked up fire extinguisher!");
-            }
-            else
-            {
-                _interactable.Interact(gameObject);
-            }
+            _interactable.Interact(gameObject);
         }
     }
 
     private void OnMovement(InputAction.CallbackContext context)
     {
-        HasStopped = false;
+        _hasStopped = false;
 
         var _movement = context.ReadValue<Vector2>();
 
-        _motion.Set(_movement.x, _motion.y, _movement.y);
+        _inputMotion.Set(_movement.x, _inputMotion.y, _movement.y);
         if (_movement != Vector2.zero)
         {
-            _dir.Set(_motion.x, 0, _motion.z);
+            _dir.Set(_inputMotion.x, 0, _inputMotion.z);
         }
-        _dir.Set(_movement.x,0, _movement.y);
+        _dir.Set(_movement.x, 0, _movement.y);
 
-        _motion.Normalize();
+        _inputMotion.Normalize();
         _dir.Normalize();
 
         // TODO: Might be able to move animation code into separate class
@@ -192,8 +172,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnMovementCanceled(InputAction.CallbackContext context)
     {
-        HasStopped = true;
-        _motion = Vector3.zero;
+        _hasStopped = true;
+        _inputMotion = Vector3.zero;
         _animator.SetBool("isMoving", false);
     }
 
@@ -207,5 +187,21 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         _interactable = null;
+    }
+
+
+    // Controller collision code referenced from - https://www.reddit.com/r/Unity3D/comments/147ymoh/basic_question_regarding_character_controller/
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        GameObject gameObject = hit.gameObject;
+        if (gameObject.layer == 9)
+        {
+            //gameObject.GetComponent<Fire>().damagePlayer(this);
+            onDamage(gameObject.GetComponent<Fire>().FireStr);
+            _outsideForce = -_inputMotion * pushbackMag;
+            _outsideForce.y = 0f;
+
+            _ignoreInput = true;
+        }
     }
 }
