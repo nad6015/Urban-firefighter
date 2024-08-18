@@ -126,7 +126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &677055748013364431
 Transform:
   m_ObjectHideFlags: 0
@@ -700,7 +700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &677055748737029902
 Transform:
   m_ObjectHideFlags: 0
@@ -877,14 +877,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 677055749067732304}
-  - component: {fileID: 677055749067732305}
+  - component: {fileID: 6865349161067841026}
   m_Layer: 0
   m_Name: ExtinguisherLevelObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &677055749067732304
 Transform:
   m_ObjectHideFlags: 0
@@ -899,7 +899,7 @@ Transform:
   m_Father: {fileID: 677055749157372363}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &677055749067732305
+--- !u!114 &6865349161067841026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -908,7 +908,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 677055749067732303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6a24e453136494990dd699ed526488, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c9661ea316f5c14b87ed5d7a2330776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireExtinguisherRectTransform: {fileID: 677055748918203987}
@@ -1019,6 +1019,7 @@ Transform:
   - {fileID: 677055749067732304}
   - {fileID: 677055748737029902}
   - {fileID: 677055749597808160}
+  - {fileID: 3286821246088862236}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1105,6 +1106,78 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677055749597808159}
   m_Enabled: 1
+--- !u!1 &1165312782413713842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3286821246088862236}
+  - component: {fileID: 4851064101921828438}
+  - component: {fileID: 5678791695412585825}
+  - component: {fileID: 2712521743041900065}
+  m_Layer: 0
+  m_Name: UI_Controller
+  m_TagString: UI_Controller
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3286821246088862236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165312782413713842}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 677055749157372363}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4851064101921828438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165312782413713842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb6146c30beca8546886e4765570624e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarImage: {fileID: 677055749133902113}
+--- !u!114 &5678791695412585825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165312782413713842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1c9f73c6f297148995d3934949815a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesSavedText: {fileID: 677055748053772245}
+--- !u!114 &2712521743041900065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165312782413713842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9661ea316f5c14b87ed5d7a2330776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireExtinguisherRectTransform: {fileID: 677055748918203987}
 --- !u!1 &6027760693938654542
 GameObject:
   m_ObjectHideFlags: 0

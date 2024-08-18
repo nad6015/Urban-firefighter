@@ -310,10 +310,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 967123871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6a24e453136494990dd699ed526488, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c9661ea316f5c14b87ed5d7a2330776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireExtinguisherRectTransform: {fileID: 9033487057707455704}
+  fireExtinguisherRectTransform: {fileID: 1293313384}
 --- !u!4 &967123873
 Transform:
   m_ObjectHideFlags: 0
