@@ -183,7 +183,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 931760916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4797b8a272cf4df280350e13c923176, type: 3}
+  m_Script: {fileID: 11500000, guid: eb6146c30beca8546886e4765570624e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarImage: {fileID: 2359264404559405400}
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 967123871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b3c9b48f7f0e4d4fba2d03bfce20576, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c9661ea316f5c14b87ed5d7a2330776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireExtinguisherRectTransform: {fileID: 1293313384}

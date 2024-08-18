@@ -1,35 +1,32 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    float fireStr = 10f;
+    // Code to serialize private field referenced from - https://discussions.unity.com/t/make-a-public-variable-with-a-private-setter-appear-in-inspector/132173
+    [SerializeField]
     float maxFireStr = 10f;
-    private float timeToApplyWater = 0;
-    void Start()
-    {
+    public float FireStr { get { return fireStr; } }
 
+    private float fireStr = 10f;
+
+    private void Start()
+    {
+        fireStr = maxFireStr;
     }
 
-    // Update is called once per frame
-    void Update()
+    internal void Extinguish(float waterStr)
     {
-        timeToApplyWater -= Time.deltaTime;
-    }
+        fireStr -= waterStr;
 
-    private void OnParticleCollision(GameObject other)
-    {
-        if (timeToApplyWater <= 0)
+        foreach (var ps in GetComponentsInChildren<ParticleSystem>())
         {
-            var hose = other.GetComponent<FireExtinguisher>();
-            fireStr -= hose.waterStr;
-            
-            timeToApplyWater = 1f;
-            transform.localScale = Vector3.one * Mathf.Max((fireStr / maxFireStr), 0.3f);
+            ps.transform.localScale = Vector3.Slerp(ps.transform.localScale, ps.transform.localScale * Mathf.Max((FireStr / maxFireStr), 0f), 0.1f);
         }
 
-        if (fireStr == 0)
+        if (FireStr <= 0)
         {
             gameObject.SetActive(false);
         }

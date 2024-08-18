@@ -6,6 +6,7 @@ public class HealthBarController : MonoBehaviour
     public Image healthBarImage;
     private float currentHealth;
     private float maxHealth = 100f;
+    private PlayerController _player;
 
     void Start()
     {
@@ -13,6 +14,24 @@ public class HealthBarController : MonoBehaviour
         currentHealth = maxHealth;
         UpdateHealthBar();
         Debug.Log("Health initialized: " + currentHealth);
+        
+        //Get player
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+        if(_player != null)
+        {
+            // Subscribe to player onDamageEvent
+            _player.onDamage += TakeDamage;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_player != null)
+        {
+            // Unsubscribe to player onDamageEvent
+            _player.onDamage -= TakeDamage;
+        }
     }
 
     public void TakeDamage(float damage)
