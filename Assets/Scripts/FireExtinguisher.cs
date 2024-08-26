@@ -8,13 +8,13 @@ public class FireExtinguisher : MonoBehaviour
 
     public float extinguisherUsageRate = 5f; // How much extinguisher is used per second
     public float refillRate = 20f; // How much extinguisher is refilled per second
+    public AudioSource useSFX;
 
     public Transform firePoint; // Point from where the extinguisher will spray
     internal Action<float> onUse; // Event triggered when extinguiser is used/spraying
     internal Action<float> onRefill; // Event triggered when extinguiser is being refilled
     private bool _isSpraying;
     private ParticleSystem _foam; // reference to particle system that simulates extinguisher's spray
-    private float timeToApplyWater = 0; // Time until spray is applied to fire again
 
     void Start()
     {
@@ -29,12 +29,6 @@ public class FireExtinguisher : MonoBehaviour
         {
             UseExtinguisher(extinguisherUsageRate * Time.deltaTime);
             ExtinguishFire();
-        }
-
-        // Example refill of the fire extinguisher with a key press (right mouse button)
-        if (Input.GetMouseButton(1))
-        {
-            RefillExtinguisher(Time.deltaTime * refillRate);
         }
     }
 
@@ -52,12 +46,14 @@ public class FireExtinguisher : MonoBehaviour
     {
         _isSpraying = true;
         _foam.Play();
+        useSFX.Play();
     }
 
     public void StopSpraying()
     {
         _isSpraying = false;
         _foam.Stop();
+        useSFX.Stop();
     }
 
     public void RefillExtinguisher(float amount)
@@ -67,7 +63,7 @@ public class FireExtinguisher : MonoBehaviour
         {
             currentExtinguisherLevel = maxExtinguisherLevel;
         }
-        onRefill(amount);
+        onRefill(currentExtinguisherLevel);
     }
 
     private void ExtinguishFire()
@@ -79,5 +75,10 @@ public class FireExtinguisher : MonoBehaviour
             Fire fire = hit.collider.GetComponent<Fire>();
             fire?.Extinguish(Time.deltaTime * extinguisherUsageRate);
         }
+    }
+
+    internal bool IsFull()
+    {
+        return currentExtinguisherLevel == maxExtinguisherLevel;
     }
 }
