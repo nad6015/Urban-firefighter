@@ -9,7 +9,7 @@ public class RefillPickup : MonoBehaviour
     bool isPickedUp = false;
     public void OnPickup(GameObject player)
     {
-        FireExtinguisher fireExtinguisher = player.GetComponent<PlayerController>().fireExtinguisher;
+        FireExtinguisher fireExtinguisher = player.GetComponent<PlayerController>().inventory.GetItem<FireExtinguisher>("fire_extinguisher");
         if (fireExtinguisher != null && !fireExtinguisher.IsFull())
         {
             fireExtinguisher.RefillExtinguisher(refillAmount);
@@ -21,7 +21,6 @@ public class RefillPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Tomboy");
         GameObject player = other.gameObject;
         OnPickup(player);
 

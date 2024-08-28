@@ -46,11 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d74e2a103cc214c996be7d0c513f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toolStr: 0
+  useSFX: {fileID: -1843249339316629111}
+  usePoint: {fileID: 3518973385013371870}
   maxExtinguisherLevel: 100
   extinguisherUsageRate: 10
   refillRate: 20
-  useSFX: {fileID: -1843249339316629111}
-  firePoint: {fileID: 3518973385013371870}
 --- !u!82 &-1843249339316629111
 AudioSource:
   m_ObjectHideFlags: 0
@@ -195,7 +196,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -4961,7 +4962,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8c958322ca88c874c9a1a5ae53f982dd,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c958322ca88c874c9a1a5ae53f982dd,
         type: 3}
@@ -4971,17 +4972,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8c958322ca88c874c9a1a5ae53f982dd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c958322ca88c874c9a1a5ae53f982dd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c958322ca88c874c9a1a5ae53f982dd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c958322ca88c874c9a1a5ae53f982dd,
         type: 3}

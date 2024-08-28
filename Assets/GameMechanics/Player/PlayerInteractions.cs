@@ -10,7 +10,7 @@ public class PlayerInteractions : MonoBehaviour
 
     private void OnStart()
     {
-        _actions = GetComponent<PlayerController>()._actions;
+        _actions = GetComponent<PlayerController>().actions;
     }
 
 
@@ -26,12 +26,10 @@ public class PlayerInteractions : MonoBehaviour
         actions.Default.Interact.performed -= OnInteract;
     }
 
-
     private void OnInteract(InputAction.CallbackContext context)
     {
         if (_interactable != null)
         {
-            Debug.Log("Interactable was found!");
             _interactable.Interact(gameObject);
         }
     }

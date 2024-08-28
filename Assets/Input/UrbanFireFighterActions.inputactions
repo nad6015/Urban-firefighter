@@ -1,5 +1,5 @@
 {
-    "name": "RhythmBreakerActions",
+    "name": "UrbanFireFighterActions",
     "maps": [
         {
             "name": "Default",
@@ -33,9 +33,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Spray",
+                    "name": "Use",
                     "type": "Button",
                     "id": "e67857cf-c9e0-402f-9b8f-4c514b889d74",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchItem",
+                    "type": "Button",
+                    "id": "1f660ed3-6893-4c65-bc9c-bd32d83f571b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -124,10 +133,21 @@
                     "name": "",
                     "id": "0bca032b-d4d0-448e-bf31-c3fbe6468d58",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Hold(duration=0.2,pressPoint=0.5)",
+                    "interactions": "Hold(duration=0.05,pressPoint=0.1)",
                     "processors": "",
                     "groups": "GameDefault",
-                    "action": "Spray",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "14008e5a-5a4f-46a8-8aea-431a66816cb0",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GameDefault",
+                    "action": "SwitchItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

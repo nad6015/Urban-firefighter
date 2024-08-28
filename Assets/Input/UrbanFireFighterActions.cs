@@ -55,9 +55,18 @@ public partial class @UrbanFireFighterActions : IInputActionCollection2, IDispos
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Spray"",
+                    ""name"": ""Use"",
                     ""type"": ""Button"",
                     ""id"": ""e67857cf-c9e0-402f-9b8f-4c514b889d74"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""1f660ed3-6893-4c65-bc9c-bd32d83f571b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -146,10 +155,21 @@ public partial class @UrbanFireFighterActions : IInputActionCollection2, IDispos
                     ""name"": """",
                     ""id"": ""0bca032b-d4d0-448e-bf31-c3fbe6468d58"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Hold(duration=0.2,pressPoint=0.5)"",
+                    ""interactions"": ""Hold(duration=0.05,pressPoint=0.1)"",
                     ""processors"": """",
                     ""groups"": ""GameDefault"",
-                    ""action"": ""Spray"",
+                    ""action"": ""Use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""14008e5a-5a4f-46a8-8aea-431a66816cb0"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GameDefault"",
+                    ""action"": ""SwitchItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -180,7 +200,8 @@ public partial class @UrbanFireFighterActions : IInputActionCollection2, IDispos
         m_Default_Movement = m_Default.FindAction("Movement", throwIfNotFound: true);
         m_Default_Interact = m_Default.FindAction("Interact", throwIfNotFound: true);
         m_Default_Jump = m_Default.FindAction("Jump", throwIfNotFound: true);
-        m_Default_Spray = m_Default.FindAction("Spray", throwIfNotFound: true);
+        m_Default_Use = m_Default.FindAction("Use", throwIfNotFound: true);
+        m_Default_SwitchItem = m_Default.FindAction("SwitchItem", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -243,7 +264,8 @@ public partial class @UrbanFireFighterActions : IInputActionCollection2, IDispos
     private readonly InputAction m_Default_Movement;
     private readonly InputAction m_Default_Interact;
     private readonly InputAction m_Default_Jump;
-    private readonly InputAction m_Default_Spray;
+    private readonly InputAction m_Default_Use;
+    private readonly InputAction m_Default_SwitchItem;
     public struct DefaultActions
     {
         private @UrbanFireFighterActions m_Wrapper;
@@ -251,7 +273,8 @@ public partial class @UrbanFireFighterActions : IInputActionCollection2, IDispos
         public InputAction @Movement => m_Wrapper.m_Default_Movement;
         public InputAction @Interact => m_Wrapper.m_Default_Interact;
         public InputAction @Jump => m_Wrapper.m_Default_Jump;
-        public InputAction @Spray => m_Wrapper.m_Default_Spray;
+        public InputAction @Use => m_Wrapper.m_Default_Use;
+        public InputAction @SwitchItem => m_Wrapper.m_Default_SwitchItem;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -270,9 +293,12 @@ public partial class @UrbanFireFighterActions : IInputActionCollection2, IDispos
                 @Jump.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
-                @Spray.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSpray;
-                @Spray.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSpray;
-                @Spray.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSpray;
+                @Use.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnUse;
+                @Use.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnUse;
+                @Use.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnUse;
+                @SwitchItem.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSwitchItem;
+                @SwitchItem.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSwitchItem;
+                @SwitchItem.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSwitchItem;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -286,9 +312,12 @@ public partial class @UrbanFireFighterActions : IInputActionCollection2, IDispos
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Spray.started += instance.OnSpray;
-                @Spray.performed += instance.OnSpray;
-                @Spray.canceled += instance.OnSpray;
+                @Use.started += instance.OnUse;
+                @Use.performed += instance.OnUse;
+                @Use.canceled += instance.OnUse;
+                @SwitchItem.started += instance.OnSwitchItem;
+                @SwitchItem.performed += instance.OnSwitchItem;
+                @SwitchItem.canceled += instance.OnSwitchItem;
             }
         }
     }
@@ -307,6 +336,7 @@ public partial class @UrbanFireFighterActions : IInputActionCollection2, IDispos
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnSpray(InputAction.CallbackContext context);
+        void OnUse(InputAction.CallbackContext context);
+        void OnSwitchItem(InputAction.CallbackContext context);
     }
 }
