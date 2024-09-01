@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInteractions _interaction;
 
     internal Action<float> onDamage;
-    FireExtinguisher fireExtinguisher;
+    internal FireExtinguisher fireExtinguisher;
 
     private void Awake()
     {
@@ -52,11 +52,15 @@ public class PlayerController : MonoBehaviour
         GameObject gameObject = hit.gameObject;
         if (gameObject.layer == 9)
         {
-            //gameObject.GetComponent<Fire>().damagePlayer(this);
             _movement.ApplyForce();
             onDamage(gameObject.GetComponent<Fire>().FireStr);
         }
+        if(gameObject.layer == 8) {
+            gameObject.GetComponent<Interactable>().Interact(gameObject);
+        }
     }
+
+
 
     internal void Equip(GameObject pickupRef)
     {

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class FireExtinguisherGauge : MonoBehaviour
 {
     public RectTransform fireExtinguisherRectTransform; // Reference to the RectTransform component
+    
     private float currentLevel;
     private float maxLevel = 100f;
 
@@ -55,20 +56,4 @@ public class FireExtinguisherGauge : MonoBehaviour
         UpdateFireExtinguisherLevel();
         Debug.Log("Level set: " + currentLevel);
     }
-
-    // // test: with the press of the letter "U" the extinguisher level will drop and with "R" letter increase
-    // // to test uncomment the Update() method below
-
-    // void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.U))
-    //     {
-    //         UseExtinguisher(10);
-    //     }
-
-    //     if (Input.GetKeyDown(KeyCode.R))
-    //     {
-    //         RefillExtinguisher(10);
-    //     }
-    // }
 }
