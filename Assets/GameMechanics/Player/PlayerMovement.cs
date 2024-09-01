@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 inputMotion;
     private Vector3 outsideForce;
 
-    private float pushbackMag = 10f;
+    public float pushbackMag = 5f;
 
     private bool ignoreInput;
     private bool hasStopped = false;

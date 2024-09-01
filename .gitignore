@@ -47,7 +47,10 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 823d3dc (feat(rescue): rescue civillians)
 # Unity3D generated file on crash reports
 sysinfo.txt
 

@@ -13,7 +13,6 @@ public class HealthBarController : MonoBehaviour
         // Initialize health
         currentHealth = maxHealth;
         UpdateHealthBar();
-        Debug.Log("Health initialized: " + currentHealth);
         
         //Get player
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -40,7 +39,6 @@ public class HealthBarController : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth < 0) currentHealth = 0;
         UpdateHealthBar();
-        Debug.Log("Took damage: " + damage + ", Current Health: " + currentHealth);
     }
 
     public void Heal(float healAmount)
@@ -49,7 +47,6 @@ public class HealthBarController : MonoBehaviour
         currentHealth += healAmount;
         if (currentHealth > maxHealth) currentHealth = maxHealth;
         UpdateHealthBar();
-        Debug.Log("Healed: " + healAmount + ", Current Health: " + currentHealth);
     }
 
     private void UpdateHealthBar()
@@ -57,7 +54,6 @@ public class HealthBarController : MonoBehaviour
         // Update the health bar UI
         float fillAmount = currentHealth / maxHealth;
         healthBarImage.fillAmount = fillAmount;
-        Debug.Log($"Health bar updated: fillAmount = {fillAmount}, currentHealth = {currentHealth}, maxHealth = {maxHealth}");
 
     }
 
@@ -66,13 +62,11 @@ public class HealthBarController : MonoBehaviour
         maxHealth = health;
         currentHealth = health;
         UpdateHealthBar();
-        Debug.Log("Max health set: " + maxHealth);
     }
 
     public void SetHealth(float health)
     {
         currentHealth = health;
         UpdateHealthBar();
-        Debug.Log("Health set: " + currentHealth);
     }
 }

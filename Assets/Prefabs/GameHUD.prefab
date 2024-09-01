@@ -127,7 +127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &677055748053772247
 RectTransform:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 255, y: -120}
+  m_AnchoredPosition: {x: 230, y: -120}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &677055748053772246
@@ -899,6 +899,7 @@ GameObject:
   - component: {fileID: 677055749597808160}
   - component: {fileID: 677055749597808162}
   - component: {fileID: 677055749597808161}
+  - component: {fileID: 1845559220220214180}
   m_Layer: 0
   m_Name: MinimapCamera
   m_TagString: Untagged
@@ -971,6 +972,37 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677055749597808159}
   m_Enabled: 1
+--- !u!114 &1845559220220214180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677055749597808159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1165312782413713842
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +1015,6 @@ GameObject:
   - component: {fileID: 4851064101921828438}
   - component: {fileID: 5678791695412585825}
   - component: {fileID: 2712521743041900065}
-  - component: {fileID: 8049740461461253204}
   m_Layer: 0
   m_Name: UI_Controller
   m_TagString: UI_Controller
@@ -1044,18 +1075,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireExtinguisherRectTransform: {fileID: 677055748918203987}
---- !u!114 &8049740461461253204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165312782413713842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbf17b4dff69dd747a37cdad3280af6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6027760693938654542
 GameObject:
   m_ObjectHideFlags: 0

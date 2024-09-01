@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 02601a21ba68045d4b352d7e47cc1bf2
+=======
+guid: 6cef42386653a4540a6cf1008ea25c68
+>>>>>>> 823d3dc (feat(rescue): rescue civillians)
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
