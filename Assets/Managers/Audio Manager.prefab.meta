@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4b0804c2592fc4d11b2af963e2ba9f09
+=======
+guid: aa452e8de95547144af60e1b08045040
+>>>>>>> 823d3dc (feat(rescue): rescue civillians)
 PrefabImporter:
   externalObjects: {}
   userData: 

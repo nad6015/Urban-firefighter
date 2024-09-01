@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 694acfe7839604f9a9cf1d97c43fa29a
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
+=======
+guid: 6c389b0e076ceb94ba352a392090136c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+>>>>>>> 823d3dc (feat(rescue): rescue civillians)
   userData: 
   assetBundleName: 
   assetBundleVariant: 

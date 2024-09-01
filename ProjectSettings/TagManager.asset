@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Current Floor
   - UI_Controller
+  - Escape point
   layers:
   - Default
   - TransparentFX
