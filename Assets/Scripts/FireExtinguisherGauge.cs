@@ -13,7 +13,6 @@ public class FireExtinguisherGauge : MonoBehaviour
         // Initialize level
         currentLevel = maxLevel;
         UpdateFireExtinguisherLevel();
-        Debug.Log("Fire extinguisher level initialized: " + currentLevel);
     }
 
     public void UseExtinguisher(float amount)
@@ -22,7 +21,6 @@ public class FireExtinguisherGauge : MonoBehaviour
         currentLevel -= amount;
         if (currentLevel < 0) currentLevel = 0;
         UpdateFireExtinguisherLevel();
-        Debug.Log("Used extinguisher: " + amount + ", Current Level: " + currentLevel);
     }
 
     public void RefillExtinguisher(float amount)
@@ -31,7 +29,6 @@ public class FireExtinguisherGauge : MonoBehaviour
         currentLevel += amount;
         if (currentLevel > maxLevel) currentLevel = maxLevel;
         UpdateFireExtinguisherLevel();
-        Debug.Log("Refilled extinguisher: " + amount + ", Current Level: " + currentLevel);
     }
 
     private void UpdateFireExtinguisherLevel()
@@ -39,7 +36,6 @@ public class FireExtinguisherGauge : MonoBehaviour
         // Update the fire extinguisher level UI
         float levelPercent = currentLevel / maxLevel;
         fireExtinguisherRectTransform.localScale = new Vector3(levelPercent, 1, 1);
-        Debug.Log($"Fire extinguisher level updated: {levelPercent * 100}%");
     }
 
     public void SetMaxLevel(float level)
@@ -47,13 +43,11 @@ public class FireExtinguisherGauge : MonoBehaviour
         maxLevel = level;
         currentLevel = level;
         UpdateFireExtinguisherLevel();
-        Debug.Log("Max level set: " + maxLevel);
     }
 
     public void SetLevel(float level)
     {
         currentLevel = level;
         UpdateFireExtinguisherLevel();
-        Debug.Log("Level set: " + currentLevel);
     }
 }

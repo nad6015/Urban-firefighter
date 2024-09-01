@@ -1,31 +1,29 @@
 ﻿using System;
 using UnityEngine;
 
-public class FireExtinguisher : MonoBehaviour
+public class FireExtinguisher : PlayerTool
 {
     public float maxExtinguisherLevel = 100f;
     private float currentExtinguisherLevel;
 
     public float extinguisherUsageRate = 5f; // How much extinguisher is used per second
     public float refillRate = 20f; // How much extinguisher is refilled per second
-    public AudioSource useSFX;
 
-    public Transform firePoint; // Point from where the extinguisher will spray
     internal Action<float> onUse; // Event triggered when extinguiser is used/spraying
     internal Action<float> onRefill; // Event triggered when extinguiser is being refilled
-    private bool _isSpraying;
-    private ParticleSystem _foam; // reference to particle system that simulates extinguisher's spray
+    private bool isSpraying;
+    private ParticleSystem foam; // reference to particle system that simulates extinguisher's spray
 
     void Start()
     {
         currentExtinguisherLevel = maxExtinguisherLevel;
-        _foam = GetComponentInChildren<ParticleSystem>();
-        _foam.Stop();
+        foam = GetComponentInChildren<ParticleSystem>();
+        foam.Stop();
     }
 
     void Update()
     {
-        if (_isSpraying)
+        if (isSpraying)
         {
             UseExtinguisher(extinguisherUsageRate * Time.deltaTime);
             ExtinguishFire();
@@ -42,17 +40,17 @@ public class FireExtinguisher : MonoBehaviour
         onUse(currentExtinguisherLevel);
     }
 
-    public void StartSpraying()
+    public override void Use()
     {
-        _isSpraying = true;
-        _foam.Play();
+        isSpraying = true;
+        foam.Play();
         useSFX.Play();
     }
 
-    public void StopSpraying()
+    public override void StopUsing()
     {
-        _isSpraying = false;
-        _foam.Stop();
+        isSpraying = false;
+        foam.Stop();
         useSFX.Stop();
     }
 
@@ -68,12 +66,9 @@ public class FireExtinguisher : MonoBehaviour
 
     private void ExtinguishFire()
     {
-
-        RaycastHit hit;
-        if (Physics.Raycast(firePoint.position, firePoint.forward, out hit, 3f))
+        if (Physics.Raycast(usePoint.position, usePoint.forward, out RaycastHit hit, 3f) && hit.collider.TryGetComponent(out Fire fire))
         {
-            Fire fire = hit.collider.GetComponent<Fire>();
-            fire?.Extinguish(Time.deltaTime * extinguisherUsageRate);
+            fire.Extinguish(Time.deltaTime * extinguisherUsageRate);
         }
     }
 

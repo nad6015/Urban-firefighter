@@ -6,8 +6,8 @@
       "source": "registry",
       "dependencies": {
         "com.unity.2d.common": "2.1.2",
-        "com.unity.mathematics": "1.1.0",
         "com.unity.2d.sprite": "1.0.0",
+        "com.unity.mathematics": "1.1.0",
         "com.unity.modules.animation": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
       },
@@ -43,8 +43,8 @@
       "source": "registry",
       "dependencies": {
         "com.unity.2d.common": "2.1.2",
-        "com.unity.2d.animation": "3.2.17",
-        "com.unity.2d.sprite": "1.0.0"
+        "com.unity.2d.sprite": "1.0.0",
+        "com.unity.2d.animation": "3.2.17"
       },
       "url": "https://packages.unity.com"
     },
@@ -59,9 +59,9 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.mathematics": "1.1.0",
+        "com.unity.2d.path": "2.1.1",
         "com.unity.2d.common": "2.1.0",
-        "com.unity.2d.path": "2.1.1"
+        "com.unity.mathematics": "1.1.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -126,6 +126,35 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.render-pipelines.core": {
+      "version": "7.7.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.physics": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.render-pipelines.universal": {
+      "version": "7.7.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.shadergraph": "7.7.1",
+        "com.unity.render-pipelines.core": "7.7.1"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.shadergraph": {
+      "version": "7.7.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "7.7.1"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.test-framework": {
       "version": "1.1.31",
       "depth": 0,
@@ -151,9 +180,9 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {
+        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.director": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
       "url": "https://packages.unity.com"
