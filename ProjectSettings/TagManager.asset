@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Current Floor
+  - UI_Controller
+  - Escape point
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Interactable
   - Fire
   - Floor
-  - 
+  - Breakable
   - 
   - 
   - 
