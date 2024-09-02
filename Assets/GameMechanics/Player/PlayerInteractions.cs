@@ -5,14 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteractions : MonoBehaviour
 {
-    private UrbanFireFighterActions _actions;
-    private Interactable _interactable;
-
-    private void OnStart()
-    {
-        _actions = GetComponent<PlayerController>().actions;
-    }
-
+    private Interactable interactable;
 
     internal void EnableInteraction(UrbanFireFighterActions actions)
     {
@@ -28,20 +21,20 @@ public class PlayerInteractions : MonoBehaviour
 
     private void OnInteract(InputAction.CallbackContext context)
     {
-        if (_interactable != null)
+        if (interactable != null)
         {
-            _interactable.Interact(gameObject);
+            interactable.Interact(gameObject);
+            interactable = null;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        _interactable = other.GetComponent<Interactable>();
+        interactable = other.GetComponent<Interactable>();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _interactable = null;
+        interactable = null;
     }
-
 }

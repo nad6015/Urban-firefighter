@@ -1,12 +1,22 @@
 fileFormatVersion: 2
-guid: e270de598d96948fe8cb0211e56e3dec
+guid: 8c958322ca88c874c9a1a5ae53f982dd
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fire_extinguisher_material
+    second: {fileID: 2100000, guid: 384a2db14152a19469d0dae67615f24c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fire_extinguisher_nozzle_material
+    second: {fileID: 2100000, guid: 651e67efe963a674c90bbba5b4ca485f, type: 2}
   materials:
     materialImportMode: 1
-    materialName: 0
+    materialName: 1
     materialSearch: 1
     materialLocation: 1
   animations:

@@ -5,6 +5,12 @@ public class LivesSavedController : MonoBehaviour
 {
     public TextMeshProUGUI livesSavedText; // Reference to the TextMeshProUGUI component
     private int livesSaved = 0;
+    private int numOfPeopleToSave;
+
+    private void Awake()
+    {
+        numOfPeopleToSave = FindObjectsOfType<Civilian>().Length;
+    }
 
     void Start()
     {
@@ -14,23 +20,15 @@ public class LivesSavedController : MonoBehaviour
     public void SaveLife()
     {
         livesSaved++;
+        if(livesSaved >= numOfPeopleToSave)
+        {
+            livesSaved = numOfPeopleToSave;
+        }
         UpdateLivesSavedText();
     }
 
     private void UpdateLivesSavedText()
     {
-        livesSavedText.text = "Lives Saved: " + livesSaved;
+        livesSavedText.text = "Lives Saved: " + livesSaved + "/" + numOfPeopleToSave;
     }
-
-    // // test: with the press of the letter "S", the number of lives saved is increased by 1
-    // // to test uncomment the Update() method below
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SaveLife();
-        }
-    }
-
 }
