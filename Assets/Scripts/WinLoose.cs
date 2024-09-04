@@ -26,7 +26,7 @@ public class WinLoose : MonoBehaviour
         {
             gameIsOver = true;
             winScreen.SetActive(true);  // Show the win screen
-            Time.timeScale = 0f;        // Pause the game
+            Time.timeScale = 0f;        // Pause the game 
         }
     }
 
@@ -54,19 +54,19 @@ public class WinLoose : MonoBehaviour
         Application.Quit();  // Quit the application
     }
 
-    // this method is for testing purposes only
-    void Update()
-    {
-        // Press 'W' to simulate winning the game
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            WinGame();
-        }
+    // // this method is for testing purposes only
+    // void Update()
+    // {
+    //     // Press 'W' to simulate winning the game
+    //     if (Input.GetKeyDown(KeyCode.W))
+    //     {
+    //         WinGame();
+    //     }
 
-        // Press 'L' to simulate losing the game
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoseGame();
-        }
-    }
+    //     // Press 'L' to simulate losing the game
+    //     if (Input.GetKeyDown(KeyCode.L))
+    //     {
+    //         LoseGame();
+    //     }
+    // }
 }
