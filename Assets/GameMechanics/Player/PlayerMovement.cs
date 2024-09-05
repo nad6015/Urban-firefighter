@@ -122,13 +122,20 @@ public class PlayerMovement : MonoBehaviour
         hasStopped = false;
 
         var _movement = context.ReadValue<Vector2>();
+    
+        Quaternion camRotation = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0);
 
         inputMotion.Set(_movement.x, inputMotion.y, _movement.y);
+        inputMotion = camRotation * inputMotion;
+
         if (_movement != Vector2.zero)
         {
             dir.Set(inputMotion.x, 0, inputMotion.z);
         }
-        dir.Set(_movement.x, 0, _movement.y);
+        else
+        {
+            dir.Set(_movement.x, 0, _movement.y);
+        }
 
         inputMotion.Normalize();
         dir.Normalize();

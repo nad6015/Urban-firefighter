@@ -9,13 +9,16 @@ public class RefillPickup : MonoBehaviour
     bool isPickedUp = false;
     public void OnPickup(GameObject player)
     {
-        FireExtinguisher fireExtinguisher = player.GetComponent<PlayerController>().inventory.GetItem<FireExtinguisher>("fire_extinguisher");
-        if (fireExtinguisher != null && !fireExtinguisher.IsFull())
+        if (player.CompareTag("Player"))
         {
-            fireExtinguisher.RefillExtinguisher(refillAmount);
-            refillSFX.Play();
-            for(int i =0; i < transform.childCount; i++) { transform.GetChild(i).gameObject.SetActive(false); }
-            isPickedUp = true;
+            FireExtinguisher fireExtinguisher = player.GetComponent<PlayerController>().inventory.GetItem<FireExtinguisher>("fire_extinguisher");
+            if (fireExtinguisher != null && !fireExtinguisher.IsFull())
+            {
+                fireExtinguisher.RefillExtinguisher(refillAmount);
+                refillSFX.Play();
+                for (int i = 0; i < transform.childCount; i++) { transform.GetChild(i).gameObject.SetActive(false); }
+                isPickedUp = true;
+            }
         }
     }
 
