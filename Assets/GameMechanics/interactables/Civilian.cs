@@ -6,14 +6,18 @@ public class Civilian : Interactable
     private Animator animator;
     private NavMeshAgent navMeshAgent;
     private GameObject escapePoint;
-    private LivesSavedController controller;
-
+    private ObjectivesController controller;
+    private static LevelManager manager;
     void Start()
     {
         animator = GetComponent<Animator>();
         escapePoint = GameObject.FindGameObjectWithTag("Escape point");
         navMeshAgent = GetComponent<NavMeshAgent>();
-        controller = GameObject.FindGameObjectWithTag("UI_Controller").GetComponent<LivesSavedController>();
+        controller = GameObject.FindGameObjectWithTag("UI_Controller").GetComponent<ObjectivesController>();
+        if (manager == null)
+        {
+            manager = FindObjectOfType<LevelManager>();
+        }
     }
 
     public override void Interact(GameObject gameObject)
@@ -22,6 +26,8 @@ public class Civilian : Interactable
         {
             animator.SetBool("isRescued", true);
             controller.SaveLife();
+            manager.DecreaseCivilianCount();
+            manager.IsLevelCompleted();
             GetComponent<BoxCollider>().enabled = false;
         }
     }

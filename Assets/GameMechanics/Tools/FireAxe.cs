@@ -18,8 +18,9 @@ public class FireAxe : PlayerTool
     {
         player_animator.Play("Axe Swing", 1);
         useSFX.Play();
-        
-        if (Physics.Raycast(pc.transform.position, pc.movement.GetModelForward() * 2f, out RaycastHit hit, 3f, LayerMask.NameToLayer("breakable")) && hit.collider.TryGetComponent(out Breakable breakable))
+        Vector3 playerForward = pc.transform.position + (pc.movement.GetModelForward() * 2f);
+        Debug.DrawLine(pc.transform.position, playerForward, Color.red, 10f);
+        if (Physics.Linecast(pc.transform.position, playerForward, out RaycastHit hit) && hit.collider.TryGetComponent(out Breakable breakable))
         {
             breakable.TakeDamage(toolStr);
         }
