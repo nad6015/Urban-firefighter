@@ -50,7 +50,7 @@ MonoBehaviour:
   useSFX: {fileID: -1843249339316629111}
   usePoint: {fileID: 3518973385013371870}
   maxExtinguisherLevel: 100
-  extinguisherUsageRate: 10
+  extinguisherUsageRate: 5
   refillRate: 20
 --- !u!82 &-1843249339316629111
 AudioSource:

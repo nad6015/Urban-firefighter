@@ -28,7 +28,7 @@ public class PlayerInventory : MonoBehaviour
             pickupRef.transform.SetParent(equipSlot.transform);
             Vector3 pickupPos = equipSlot.transform.position;
             pickupPos.y -= 1f;
-            pickupRef.transform.SetPositionAndRotation(pickupPos, Quaternion.LookRotation(playerController.movement.GetModelForward(), transform.up));
+            pickupRef.transform.SetPositionAndRotation(pickupPos, Quaternion.LookRotation(playerController.movement.GetModelForward(), playerController.transform.up));
 
             if (currentlyEquipped != null)
             {

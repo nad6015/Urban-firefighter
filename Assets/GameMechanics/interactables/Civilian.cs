@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class Civilian : Interactable
 {
+    public GameObject indicator;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
     private GameObject escapePoint;
@@ -24,6 +25,7 @@ public class Civilian : Interactable
     {
         if (!animator.GetBool("isRescued"))
         {
+            indicator.SetActive(false);
             animator.SetBool("isRescued", true);
             controller.SaveLife();
             manager.DecreaseCivilianCount();

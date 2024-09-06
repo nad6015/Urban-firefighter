@@ -8,10 +8,10 @@ public class Fire : MonoBehaviour
     private static LevelManager manager;
     // Code to serialize private field referenced from - https://discussions.unity.com/t/make-a-public-variable-with-a-private-setter-appear-in-inspector/132173
     [SerializeField]
-    float maxFireStr = 10f;
+    float maxFireStr = 7f;
     public float FireStr { get { return fireStr; } }
 
-    private float fireStr = 10f;
+    private float fireStr = 0;
 
     private void Start()
     {
@@ -28,7 +28,7 @@ public class Fire : MonoBehaviour
 
         foreach (var ps in GetComponentsInChildren<ParticleSystem>())
         {
-            ps.transform.localScale = Vector3.Slerp(ps.transform.localScale, ps.transform.localScale * Mathf.Max((FireStr / maxFireStr), 0f), 0.1f);
+            ps.transform.localScale = Vector3.Slerp(ps.transform.localScale, ps.transform.localScale * Mathf.Max(FireStr / maxFireStr, 0.9f), 0.1f);
         }
 
         if (FireStr <= 0)

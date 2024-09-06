@@ -14,11 +14,14 @@ public class FireExtinguisher : PlayerTool
     private bool isSpraying;
     private ParticleSystem foam; // reference to particle system that simulates extinguisher's spray
 
+    private PlayerController pc;
+
     void Start()
     {
         currentExtinguisherLevel = maxExtinguisherLevel;
         foam = GetComponentInChildren<ParticleSystem>();
         foam.Stop();
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     void Update()
@@ -74,7 +77,9 @@ public class FireExtinguisher : PlayerTool
 
     private void ExtinguishFire()
     {
-        if (Physics.Raycast(usePoint.position, usePoint.forward, out RaycastHit hit, 3f) && hit.collider.TryGetComponent(out Fire fire))
+        Vector3 playerForward = pc.transform.position + (pc.movement.GetModelForward() * 2f);
+
+        if (Physics.Linecast(pc.transform.position, playerForward, out RaycastHit hit) && hit.collider.TryGetComponent(out Fire fire))
         {
             fire.Extinguish(Time.deltaTime * extinguisherUsageRate);
         }
