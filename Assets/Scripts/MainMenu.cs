@@ -32,15 +32,15 @@ public class MainMenu : MonoBehaviour
     }
 
     public void LoadCredits() {
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("CreditsV2");
     }
 
     public void LoadMainMenu() {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Main MenuV2");
     }
 
     public void LoadOptions() {
-        SceneManager.LoadScene("Options");
+        SceneManager.LoadScene("OptionsV2");
     }
 
     public void ExitGame() {

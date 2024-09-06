@@ -42,6 +42,8 @@ public class AudioSettings : MonoBehaviour
     }
 
     private void SaveVolumePreferences() {
+        Debug.Log(volumeSlider.value);
+        Debug.Log(soundEffectSlider.value);
         PlayerPrefs.SetFloat("GameVolume", volumeSlider.value);
         PlayerPrefs.SetFloat("SoundEffectVolume", soundEffectSlider.value);
     }
