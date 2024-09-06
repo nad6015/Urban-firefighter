@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
+    private static LevelManager manager;
     // Code to serialize private field referenced from - https://discussions.unity.com/t/make-a-public-variable-with-a-private-setter-appear-in-inspector/132173
     [SerializeField]
     float maxFireStr = 10f;
@@ -15,6 +16,10 @@ public class Fire : MonoBehaviour
     private void Start()
     {
         fireStr = maxFireStr;
+        if (manager == null)
+        {
+            manager = FindObjectOfType<LevelManager>();
+        }
     }
 
     internal void Extinguish(float waterStr)
@@ -28,6 +33,9 @@ public class Fire : MonoBehaviour
 
         if (FireStr <= 0)
         {
+            manager.DecreaseFireCount();
+            manager.IsLevelCompleted();
+            FindObjectOfType<ObjectivesController>().ExtinguishFire();
             gameObject.SetActive(false);
         }
     }

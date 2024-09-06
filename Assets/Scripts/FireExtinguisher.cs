@@ -27,6 +27,11 @@ public class FireExtinguisher : PlayerTool
         {
             UseExtinguisher(extinguisherUsageRate * Time.deltaTime);
             ExtinguishFire();
+
+            if(currentExtinguisherLevel <= 0)
+            {
+                StopUsing();
+            }
         }
     }
 
@@ -42,9 +47,12 @@ public class FireExtinguisher : PlayerTool
 
     public override void Use()
     {
-        isSpraying = true;
-        foam.Play();
-        useSFX.Play();
+        if (currentExtinguisherLevel > 0)
+        {
+            isSpraying = true;
+            foam.Play();
+            useSFX.Play();
+        }
     }
 
     public override void StopUsing()
