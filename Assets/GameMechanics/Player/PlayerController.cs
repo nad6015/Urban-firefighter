@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         interaction = GetComponent<PlayerInteractions>();
         inventory = GetComponent<PlayerInventory>();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()

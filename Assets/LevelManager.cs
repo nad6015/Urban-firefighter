@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public string nextLevel;
+    public GameObject indicator;
     internal int numOfPeopleToSave;
     internal int numOfFiresToExtinguish;
+
 
     void Awake()
     {
         GetComponent<BoxCollider>().enabled = false;
-        GetComponentInChildren<Animator>().gameObject.SetActive(false);
+        indicator.SetActive(false);
 
         numOfPeopleToSave = FindObjectsOfType<Civilian>().Length;
         numOfFiresToExtinguish = FindObjectsOfType<Fire>().Length;
@@ -20,10 +22,9 @@ public class LevelManager : MonoBehaviour
 
     public void IsLevelCompleted()
     {
-        Debug.Log(numOfPeopleToSave);
         if (numOfPeopleToSave <= 0 && numOfFiresToExtinguish <=0) {
             GetComponent<BoxCollider>().enabled = true;
-            GetComponentInChildren<Animator>().gameObject.SetActive(true);
+            indicator.SetActive(true);
         }
     }
 
@@ -39,6 +40,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GameObject.FindGameObjectWithTag("Player").transform.position = Vector3.zero;
         SceneManager.LoadScene(nextLevel);
     }
 }
