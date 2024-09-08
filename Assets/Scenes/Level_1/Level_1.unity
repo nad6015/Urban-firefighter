@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -660,6 +660,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Civilian Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303888662960746123, guid: dc35fcf662ecf4f42b438adb5fadd06f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc35fcf662ecf4f42b438adb5fadd06f, type: 3}
@@ -1788,7 +1793,7 @@ PrefabInstance:
     - target: {fileID: 5303888662960746123, guid: dc35fcf662ecf4f42b438adb5fadd06f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc35fcf662ecf4f42b438adb5fadd06f, type: 3}
@@ -2711,6 +2716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: fire_hazard (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721634116302354924, guid: c590684065630ea4096e1a6179dc0b5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4721634116302354925, guid: c590684065630ea4096e1a6179dc0b5f,
         type: 3}
@@ -4180,6 +4190,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: fire_hazard (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4721634116302354924, guid: c590684065630ea4096e1a6179dc0b5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4721634116302354925, guid: c590684065630ea4096e1a6179dc0b5f,
         type: 3}
       propertyPath: m_RootOrder
@@ -5503,6 +5518,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: fire_hazard
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721634116302354924, guid: c590684065630ea4096e1a6179dc0b5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4721634116302354925, guid: c590684065630ea4096e1a6179dc0b5f,
         type: 3}
@@ -7111,6 +7131,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: fire_hazard (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4721634116302354924, guid: c590684065630ea4096e1a6179dc0b5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4721634116302354925, guid: c590684065630ea4096e1a6179dc0b5f,
         type: 3}
       propertyPath: m_RootOrder
@@ -8105,6 +8130,7 @@ GameObject:
   - component: {fileID: 1301393349}
   - component: {fileID: 1301393348}
   - component: {fileID: 1301393347}
+  - component: {fileID: 1301393350}
   m_Layer: 0
   m_Name: NextLevel
   m_TagString: Untagged
@@ -8126,6 +8152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextLevel: Level_2
   indicator: {fileID: 399747652}
+  shouldEndGame: 0
 --- !u!65 &1301393348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8154,6 +8181,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1301393350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301393346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03310d0f147f4bf4ab46773d79dff64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winScreen: {fileID: 0}
+  loseScreen: {fileID: 0}
 --- !u!1001 &1305070476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10397,6 +10438,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: fire_hazard (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4721634116302354924, guid: c590684065630ea4096e1a6179dc0b5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4721634116302354925, guid: c590684065630ea4096e1a6179dc0b5f,
         type: 3}
       propertyPath: m_RootOrder
@@ -10827,6 +10873,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: fire_hazard (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4721634116302354924, guid: c590684065630ea4096e1a6179dc0b5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4721634116302354925, guid: c590684065630ea4096e1a6179dc0b5f,
         type: 3}
       propertyPath: m_RootOrder
@@ -11059,6 +11110,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: fire_hazard (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721634116302354924, guid: c590684065630ea4096e1a6179dc0b5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4721634116302354925, guid: c590684065630ea4096e1a6179dc0b5f,
         type: 3}
@@ -12010,6 +12066,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1945149902}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1945544020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1945544021}
+  m_Layer: 0
+  m_Name: StartingPoint
+  m_TagString: StartingPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1945544021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945544020}
+  m_LocalRotation: {x: -0, y: -0.7132326, z: -0, w: 0.7009275}
+  m_LocalPosition: {x: 6.94, y: -1.79, z: 0.86}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: -90.997, z: 0}
 --- !u!1 &1966830567
 GameObject:
   m_ObjectHideFlags: 0
@@ -12506,7 +12592,7 @@ PrefabInstance:
     - target: {fileID: 5303888662960746123, guid: dc35fcf662ecf4f42b438adb5fadd06f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc35fcf662ecf4f42b438adb5fadd06f, type: 3}
@@ -12704,6 +12790,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: fire_hazard (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721634116302354924, guid: c590684065630ea4096e1a6179dc0b5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4721634116302354925, guid: c590684065630ea4096e1a6179dc0b5f,
         type: 3}

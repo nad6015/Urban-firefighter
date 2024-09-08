@@ -22,6 +22,7 @@ public class WinLoose : MonoBehaviour
     // This method will be called when the player wins the game
     public void WinGame()
     {
+        Debug.Log("We won!");
         if (!gameIsOver)  // Ensure the win/lose screen is shown only once
         {
             gameIsOver = true;

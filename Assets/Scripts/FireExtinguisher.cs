@@ -77,8 +77,9 @@ public class FireExtinguisher : PlayerTool
 
     private void ExtinguishFire()
     {
-        Vector3 playerForward = pc.transform.position + (pc.movement.GetModelForward() * 2f);
+        Vector3 playerForward = pc.transform.position + (pc.movement.GetModelForward() * 3f);
 
+        Debug.DrawLine(pc.transform.position, playerForward, Color.red, 10f);
         if (Physics.Linecast(pc.transform.position, playerForward, out RaycastHit hit) && hit.collider.TryGetComponent(out Fire fire))
         {
             fire.Extinguish(Time.deltaTime * extinguisherUsageRate);
