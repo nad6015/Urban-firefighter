@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,15 +10,22 @@ public class LevelManager : MonoBehaviour
     public GameObject indicator;
     internal int numOfPeopleToSave;
     internal int numOfFiresToExtinguish;
+    public bool shouldEndGame = false;
 
 
     void Awake()
     {
-        GetComponent<BoxCollider>().enabled = false;
-        indicator.SetActive(false);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        IsLevelCompleted(); // for testing purposes
+        ResetObjectives();
+        DontDestroyOnLoad(gameObject);
+    }
 
-        numOfPeopleToSave = FindObjectsOfType<Civilian>().Length;
-        numOfFiresToExtinguish = FindObjectsOfType<Fire>().Length;
+    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        if (arg0.name == "Level_2") {
+            shouldEndGame = true;
+        }
     }
 
     public void IsLevelCompleted()
@@ -38,9 +46,23 @@ public class LevelManager : MonoBehaviour
         numOfFiresToExtinguish--;
     }
 
+    public void ResetObjectives()
+    {
+        GetComponent<BoxCollider>().enabled = false;
+        indicator.SetActive(false);
+
+        numOfPeopleToSave = FindObjectsOfType<Civilian>().Length;
+        numOfFiresToExtinguish = FindObjectsOfType<Fire>().Length;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        GameObject.FindGameObjectWithTag("Player").transform.position = Vector3.zero;
+        other.gameObject.transform.position = Vector3.zero;
         SceneManager.LoadScene(nextLevel);
+
+        if(shouldEndGame)
+        {
+            GetComponent<WinLoose>().WinGame();
+        }
     }
 }
