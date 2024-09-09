@@ -664,7 +664,7 @@ PrefabInstance:
     - target: {fileID: 5303888662960746123, guid: dc35fcf662ecf4f42b438adb5fadd06f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc35fcf662ecf4f42b438adb5fadd06f, type: 3}
@@ -1793,7 +1793,7 @@ PrefabInstance:
     - target: {fileID: 5303888662960746123, guid: dc35fcf662ecf4f42b438adb5fadd06f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc35fcf662ecf4f42b438adb5fadd06f, type: 3}
@@ -6265,6 +6265,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2915442543378831615, guid: 535c070246927dc4d92f031cb7ece454, type: 3}
+--- !u!1 &1064325521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6740354288599757249, guid: 1f12ba76c39976944aeea576b2373724,
+    type: 3}
+  m_PrefabInstance: {fileID: 1067862847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1067862847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6685,6 +6691,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3568376359338958269, guid: 4c4b2b0935db72a45a61b3a6e86d95bf,
     type: 3}
   m_PrefabInstance: {fileID: 1116737677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1140425397 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6929206094621519722, guid: 1f12ba76c39976944aeea576b2373724,
+    type: 3}
+  m_PrefabInstance: {fileID: 1067862847}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1146206368
 GameObject:
@@ -8193,8 +8205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c03310d0f147f4bf4ab46773d79dff64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winScreen: {fileID: 0}
-  loseScreen: {fileID: 0}
+  winScreen: {fileID: 1064325521}
+  loseScreen: {fileID: 1140425397}
 --- !u!1001 &1305070476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12592,7 +12604,7 @@ PrefabInstance:
     - target: {fileID: 5303888662960746123, guid: dc35fcf662ecf4f42b438adb5fadd06f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc35fcf662ecf4f42b438adb5fadd06f, type: 3}

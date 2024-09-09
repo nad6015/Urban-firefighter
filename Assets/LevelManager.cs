@@ -15,17 +15,8 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
         IsLevelCompleted(); // for testing purposes
         ResetObjectives();
-        DontDestroyOnLoad(gameObject);
-    }
-
-    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
-    {
-        if (arg0.name == "Level_2") {
-            shouldEndGame = true;
-        }
     }
 
     public void IsLevelCompleted()
@@ -57,12 +48,13 @@ public class LevelManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.transform.position = Vector3.zero;
-        SceneManager.LoadScene(nextLevel);
-
-        if(shouldEndGame)
+        if (shouldEndGame)
         {
-            GetComponent<WinLoose>().WinGame();
+            GetComponent<WinLose>().WinGame();
+        }
+        else
+        {
+            SceneManager.LoadScene(nextLevel);
         }
     }
 }
