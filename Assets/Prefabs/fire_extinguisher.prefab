@@ -51,7 +51,7 @@ MonoBehaviour:
   usePoint: {fileID: 3518973385013371870}
   maxExtinguisherLevel: 100
   extinguisherUsageRate: 5
-  refillRate: 20
+  refillRate: 50
 --- !u!82 &-1843249339316629111
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,7 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -32,14 +30,6 @@ public class PlayerController : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         interaction = GetComponent<PlayerInteractions>();
         inventory = GetComponent<PlayerInventory>();
-        DontDestroyOnLoad(gameObject);
-        //SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
-    {
-        GameObject startingPoint = GameObject.FindGameObjectWithTag("StartingPoint");
-        transform.SetPositionAndRotation(startingPoint.transform.position, startingPoint.transform.rotation);
     }
 
     private void OnEnable()

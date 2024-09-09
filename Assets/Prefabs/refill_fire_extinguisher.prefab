@@ -175,7 +175,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 6b553dab29a086d40a20b3c2aa7e4a8b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17040dee47f3210489c8908ebec0d6f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refillAmount: 20
+  refillAmount: 30
   refillSFX: {fileID: 594894098}
 --- !u!1001 &1564751933244743358
 PrefabInstance:

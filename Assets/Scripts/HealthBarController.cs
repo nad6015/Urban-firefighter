@@ -5,8 +5,9 @@ public class HealthBarController : MonoBehaviour
 {
     public Image healthBarImage;
     private float currentHealth;
-    private float maxHealth = 100f;
+    private float maxHealth = 150f;
     private PlayerController _player;
+    private int timesHealed = 0;
 
     void Start()
     {
@@ -38,7 +39,7 @@ public class HealthBarController : MonoBehaviour
         // Reduce health
         currentHealth -= damage;
         if (currentHealth <= 0){ 
-            FindObjectOfType<WinLoose>().LoseGame();
+            FindObjectOfType<WinLose>().LoseGame();
         }
         UpdateHealthBar();
     }
@@ -59,16 +60,13 @@ public class HealthBarController : MonoBehaviour
 
     }
 
-    public void SetMaxHealth(float health)
-    {
-        maxHealth = health;
-        currentHealth = health;
-        UpdateHealthBar();
-    }
 
-    public void SetHealth(float health)
+    void Update()
     {
-        currentHealth = health;
-        UpdateHealthBar();
+        if (Input.GetKeyUp(KeyCode.P) && timesHealed  < 3)
+        {
+            Heal(maxHealth);
+            ++timesHealed;
+        }
     }
 }
